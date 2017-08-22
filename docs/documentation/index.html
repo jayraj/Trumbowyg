@@ -44,6 +44,7 @@
                         <li><a href="#installation">Installation</a></li>
                         <li><a href="#basics">Basics</a></li>
                         <li><a href="#common-issues">Common issues</a></li>
+                        <li><a href="#use-plugins">Use plugins</a></li>
                     </ul>
                 </li>
                 <li>
@@ -152,7 +153,8 @@
             </code></pre>
 
             <p>
-                Don't forget to load Trumbowyg CSS in the <code>&lt;head&gt;</code>, or load your own style for the editor.
+                Don't forget to load Trumbowyg CSS in the <code>&lt;head&gt;</code>, or load your own style for the
+                editor.
             </p>
             <pre><code class="html">
 &lt;link rel="stylesheet" href="node_modules/trumbowyg/dist/ui/trumbowyg.min.css">
@@ -192,6 +194,54 @@ $('#trumbowyg-demo').trumbowyg({
             <p>
                 If your problem is not solved by these tips, check the
                 <a href="#svg-icons">SVG icons section</a>.
+            </p>
+        </div>
+
+        <div class="feature">
+            <h3 id="use-plugins">Use plugins</h3>
+
+            <h4>Plugin list</h4>
+
+            <p>
+                You can check <a href="../#plugins">plugin list on the home</a> or
+                <a href="https://github.com/Alex-D/Trumbowyg/tree/master/dist/plugins">
+                    check plugins folder on the master branch</a>.
+            </p>
+
+            <h4>Add a plugin to your page</h4>
+
+            <p>
+                Basically you need to add the plugin JS to your page, at the bottom of your <code>&lt;body></code>,
+                <strong>after</strong> jQuery and Trumbowyg imports (in this order), but before your custom JS which
+                initialize Trumbowyg:
+            </p>
+            <pre><code class="html">
+&lt;-- Import jQuery -->
+&lt;script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">&lt;/script>
+&lt;script>window.jQuery || document.write('&lt;script src="js/vendor/jquery-3.2.1.min.js">&lt;\/script>')&lt;/script>
+
+&lt;-- Import Trumbowyg -->
+&lt;script src="node_modules/trumbowyg/dist/trumbowyg.min.js">&lt;/script>
+
+&lt;-- Import Trumbowyg plugins... -->
+&lt;script src="node_modules/trumbowyg/dist/plugins/upload/trumbowyg.cleanpaste.min.js">&lt;/script>
+&lt;script src="node_modules/trumbowyg/dist/plugins/upload/trumbowyg.pasteimage.min.js">&lt;/script>
+
+&lt;-- Init Trumbowyg -->
+&lt;script>
+    // Doing this in a loaded JS file is better, I put this here for simplicity
+    $('#my-editor').trumbowyg();
+&lt;/script>
+            </code></pre>
+
+            <p>
+                In the previous case, plugins are "auto registering" themself into Trumbowyg and be activated in
+                <strong>all</strong> future Trumbowyg instances.
+            </p>
+            <p>
+                But most popular plugins are button-based, like
+                <a href="./plugins/upload.html">upload</a> or
+                <a href="./plugins/colors.html">colors</a> ones.
             </p>
         </div>
     </section>
