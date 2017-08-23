@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Documentation of Trumbowyg : a lightweight WYSIWYG editor | Alex-D / Alexandre Demode</title>
+    <title>Documentation | Trumbowyg : a lightweight WYSIWYG editor | Alex-D / Alexandre Demode</title>
     <meta name="description" content="Trumbowyg is a jQuery plugin for create WYSIWYG editor">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -73,10 +73,9 @@
                     <a href="#advanced-options">Advanced Options</a>
                     <ul>
                         <li><a href="#add-localization">Add a localization</a></li>
-                        <!-- TODO
                         <li><a href="#custom-buttons">Custom buttons</a></li>
                         <li><a href="#keyboard-shortcuts">Keyboard shortcuts</a></li>
-                        <li><a href="#add-button-type">Add button type</a></li>
+                        <!-- TODO
                         <li><a href="#create-plugin">Create a plugin</a></li>
                         -->
                     </ul>
@@ -242,6 +241,8 @@ $('#trumbowyg-demo').trumbowyg({
                 But most popular plugins are button-based, like
                 <a href="./plugins/upload.html">upload</a> or
                 <a href="./plugins/colors.html">colors</a> ones.
+                If you want to use these plugins, load them like explained before, then add the plugin button to your editor
+                by <a href="#button-pane">checking de button pane doc section</a>.
             </p>
         </div>
     </section>
@@ -481,27 +482,19 @@ $('.simple-editor').trumbowyg({
 $('.simple-editor').trumbowyg({
     btns: [
         ['viewHTML'],
+        ['undo', 'redo'], // Only supported in Blink browsers
         ['formatting'],
-        'btnGrp-semantic',
+        ['strong', 'em', 'del'],
         ['superscript', 'subscript'],
         ['link'],
         ['insertImage'],
-        'btnGrp-justify',
-        'btnGrp-lists',
+        ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'],
+        ['unorderedList', 'orderedList'],
         ['horizontalRule'],
         ['removeformat'],
         ['fullscreen']
     ]
 });
-
-/** WTF are btnGrp-* buttons? There are just arrays of strings :)
-*  jQuery.trumbowyg.btnsGrps = {
-*      design:   ['bold', 'italic', 'underline', 'strikethrough'],
-*      semantic: ['strong', 'em'],
-*      justify:  ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'],
-*      lists:    ['unorderedList', 'orderedList']
-*  };
-*/
                 </code></pre>
             </div>
         </div>
@@ -612,15 +605,15 @@ $('.trumbowyg').trumbowyg({
             </p>
             <pre><code class="javascript">
 jQuery.trumbowyg.langs.fr = {
-    _dir: "ltr", // This line is optionnal, but usefull to override the `dir` option
+    _dir: "ltr", // Changes the editor dir
 
     bold: "Gras",
     close: "Fermer"
 };
             </code></pre>
             <p>
-                Some localizations are added each day, you can find them <a
-                    href="https://github.com/Alex-D/Trumbowyg/tree/master/dist/langs">here</a>
+                Some localizations are added each day, you can find them in
+                <a href="https://github.com/Alex-D/Trumbowyg/tree/master/dist/langs">the langs folder on GitHub</a>
             </p>
             <p>
                 You can submit a new localization file by creating a new pull request on the Github repository.
